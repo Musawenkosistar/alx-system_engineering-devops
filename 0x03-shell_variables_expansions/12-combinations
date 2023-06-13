@@ -1,5 +1,2 @@
 #!/bin/bash
 echo {a..z}{a..z} | tr " " "\n" | grep -v "oo"
-
-2.4567
-2.46

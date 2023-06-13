@@ -1,8 +1,2 @@
 #!/bin/bash
-echo $((2#$BINARY))
-
-font -{a,b,c}
-fornt-a, font-b, font-c
-{a..z}{a..z}
-
-oo
+echo {a..z}{a..z} | tr " " "\n" | grep -v "oo"

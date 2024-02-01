@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displays Best School 10 times
+i=l
+while [ "$i" -le 10 ]
+do
+        echo "Best School"
+        i=$(( i + l ))
+done

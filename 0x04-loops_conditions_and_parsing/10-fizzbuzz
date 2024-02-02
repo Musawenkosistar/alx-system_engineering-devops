@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
-# Dislpays numbers from 1 to 100.
-for i in {1..100}
-do
-    if [ $((i % 5)) -eq 0 ] && [ $((i % 3)) -eq 0 ]
-    then
-                        echo "FizzBuzz"
-    elif [ $((i % 5)) -eq 0 ]
-    then
+# displays numbers from 1 to 100.
 
-    elif [ $((i % 3)) -eq 0 ]
+COUNTER=1
+while [ $COUNTER -lt 101 ]
+do
+    if [ $((COUNTER%15)) = 0 ]
     then
-                        echo "Fizz"
+        echo "FizzBuzz"
+    elif [ $((COUNTER%3)) = 0 ]
+    then
+        echo "Fizz"
+    elif [ $((COUNTER%5)) = 0 ]
+    then
+        echo "Buzz"
     else
-                        echo "$i"
+        echo "$COUNTER"
     fi
+    ((COUNTER+=1))
 done

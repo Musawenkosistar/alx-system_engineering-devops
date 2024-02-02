@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-# Displays the current running processes, in a user-oriented format.
-
-ps -faux
+# Displays "I am alive!' indefinitely.
+while "true"
+do 
+	echo "I am alive!" > /tmp/my_process
+	sleep 2
+done

@@ -10,7 +10,7 @@ import requests
 import sys
 
 headers = {
-    'User-Agent': 'My User Agent 1.0'
+    'User-Agent': 'ALX Project/1.0 by /u/Musawenkosistar'
 }
 
 

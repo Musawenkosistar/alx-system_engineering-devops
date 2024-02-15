@@ -1,29 +1,41 @@
- Python script that, using this REST API, for a given employee ID,
-returns information about his/her TODO list progress
+#!/usr/bin/python3
 """
+A sript that, uses a REST API, for a given employee ID, returns
+information about his/her TODO list progress
+and exports data in the JSON format.
+"""
+
+import json
+import requests
+from sys import argv
+
+
 if __name__ == "__main__":
 
-    import requests
-    import sys
-    import json
+    sessionReq = requests.Session()
 
-    if len(sys.argv) == 2 and sys.argv[1].isdigit():
-        u_url = 'https://jsonplaceholder.typicode.com/users/'
-        td_url = 'https://jsonplaceholder.typicode.com/todos?userId='
+    idEmp = argv[1]
+    idURL = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(idEmp)
+    nameURL = 'https://jsonplaceholder.typicode.com/users/{}'.format(idEmp)
 
-        USER_ID = requests.get(u_url + sys.argv[1]).json()['id']
-        USERNAME = requests.get(u_url + sys.argv[1]).json()['username']
-        TASK_COMPLETED_STATUSES = [task['completed'] for task in
-                                   requests.get(td_url + sys.argv[1]).json()]
-        TASKS_TITLES = [task['title'] for task in
-                        requests.get(td_url + sys.argv[1]).json()]
-        TOTAL_NUMBER_OF_TASKS = len(requests.get(td_url + sys.argv[1]).json())
+    employee = sessionReq.get(idURL)
+    employeeName = sessionReq.get(nameURL)
 
-        TASKS_DICT = {"{}".format(USER_ID):
-                      [{"task": "{}".format(TASKS_TITLES[N]),
-                        "completed": TASK_COMPLETED_STATUSES[N],
-                        "username": "{}".format(USERNAME)}
-                       for N in range(TOTAL_NUMBER_OF_TASKS)]}
+    json_req = employee.json()
+    usr = employeeName.json()['username']
 
-        with open('{}.json'.format(USER_ID), 'w') as fp:
-            json.dump(TASKS_DICT, fp)
+    totalTasks = []
+    updateUser = {}
+
+    for all_Emp in json_req:
+        totalTasks.append(
+            {
+                "task": all_Emp.get('title'),
+                "completed": all_Emp.get('completed'),
+                "username": usr,
+            })
+    updateUser[idEmp] = totalTasks
+
+    file_Json = idEmp + ".json"
+    with open(file_Json, 'w') as f:
+        json.dump(updateUser, f)

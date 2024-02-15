@@ -1,28 +1,40 @@
 #!/usr/bin/python3
 """
-Using reddit's API
+Write a recursive function that queries the Reddit API and returns a list
+containing the titles of all hot articles for a given subreddit.
+If no results are found for the given subreddit,
+the function should return None.
 """
+import json
+import pprint
 import requests
+import sys
+
+headers = {
+    'User-Agent': 'ALX Project/1.0 by /u/Musawenkosistar'
+}
 after = None
 
 
 def recurse(subreddit, hot_list=[]):
-    """returning top ten post titles recursively"""
-    global after
-    user_agent = {'User-Agent': 'api_advanced-project'}
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    parameters = {'after': after}
-    results = requests.get(url, params=parameters, headers=user_agent,
-                           allow_redirects=False)
-
-    if results.status_code == 200:
-        after_data = results.json().get("data").get("after")
-        if after_data is not None:
-            after = after_data
-            recurse(subreddit, hot_list)
-        all_titles = results.json().get("data").get("children")
-        for title_ in all_titles:
-            hot_list.append(title_.get("data").get("title"))
+    """function that returns a list with the titles of all hot articles"""
+    try:
+        url = 'https://www.reddit.com/r/'
+        global after
+        if after:
+            response = requests.get(url + subreddit + "/hot.json?after=" +
+                                    after, headers=headers,
+                                    allow_redirects=False)
+            # pprint.pprint(response.json())
+        else:
+            response = requests.get(url + subreddit + "/hot.json",
+                                    headers=headers, allow_redirects=False)
+            # pprint.pprint(response.json())
+        after = response.json()['data']['after']
+        hot_list += [element['data']['title'] for element in response.
+                     json()['data']['children']]
+        if after:
+            return recurse(subreddit, hot_list)
         return hot_list
-    else:
-        return (None)
+    except:
+        return None

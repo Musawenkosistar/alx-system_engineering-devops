@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """
-Contains the number_of_subscribers function
+Write a Python script that queries the Reddit API and returns the number of
+subscribers (not active users, total subscribers) for a given subreddit.
+If an invalid subreddit is given, the function should return 0
 """
 
 import requests
 
 def number_of_subscribers(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     user_agent = "ALX Project/1.0 by /u/Musawenkosistar"  
     headers = {'User-Agent': user_agent}
     
@@ -25,6 +27,3 @@ def number_of_subscribers(subreddit):
     except Exception as e:
         print(f"An error occurred: {str(e)}")
         return 0
-
-subreddit = "python"
-print(f"Number of subscribers in r/{subreddit}: {number_of_subscribers(subreddit)}")

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Sign up for Datadog and install datadog-agent
 
 8d7b37fa14235416eeb8e181b9cb7b16
 c325598f5150db936311497cfdfd61aba85a3dac

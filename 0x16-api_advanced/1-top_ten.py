@@ -1,28 +1,20 @@
 #!/usr/bin/python3
 """
-Write a Python script that queries the Reddit API and returns the number of
-subscribers (not active users, total subscribers) for a given subreddit.
-If an invalid subreddit is given, the function should return 0
+    Uses reddit API to get 10 hot posts
 """
-import json
-# import pprint
 import requests
-import sys
-
-headers = {
-    'User-Agent': 'ALX Project/1.0 by /u/Musawenkosistar'
-}
 
 
 def top_ten(subreddit):
-    """function that returns the titles of the first 10 hot posts"""
-    try:
-        url = 'https://www.reddit.com/r/'
-        response = requests.get(url + subreddit + "/hot.json?limit=10",
-                                headers=headers, allow_redirects=False)
-        myArray = [element['data']['title'] for element in response.
-                   json()['data']['children']]
-        print(*myArray, sep='\n')
-        # pprint.pprint(response.json())
-    except:
+    """Get 10 hot posts"""
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    headers = {'user-agent': 'request'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
+
+    if response.status_code != 200:
         print(None)
+        return
+
+    data = response.json().get("data").get("children")
+    top_10_posts = "\n".join(post.get("data").get("title") for post in data)
+    print(top_10_posts)

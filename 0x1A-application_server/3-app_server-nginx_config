@@ -28,6 +28,9 @@ server {
 	#IP
 	server_name 54.198.55.96;
 
+	index index.html index.htm index.nginx-debian.html;
+        rewrite ^/redirect_me https://github.com/Musawenkosistar permanent;
+
 	#Custom
 	add_header X-Served-By 232782-web-01;
 

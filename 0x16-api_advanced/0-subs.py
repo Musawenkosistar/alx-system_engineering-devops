@@ -1,22 +1,19 @@
 #!/usr/bin/python3
 """
-    Uses Reddit API to print the number of subscribers of a subreddit
+    this module contains the function number_of_subscribers
 """
 import requests
+from sys import argv
 
 
 def number_of_subscribers(subreddit):
     """
-    Get the number of subscribers for a given subreddit
+        returns the number of subscribers for a given subreddit
     """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'user-agent': 'ALX Project/1.0'}
-    response = requests.get(url, headers=headers, allow_redirects=False)
-
-    if response.status_code != 200:
+    user = {'User-Agent': 'ALX Project'}
+    url = requests.get('https://www.reddit.com/r/{}/about.json'
+                       .format(subreddit), headers=user).json()
+    try:
+        return url.get('data').get('subscribers')
+    except Exception:
         return 0
-
-    data = response.json().get("data")
-    num_subs = data.get("subscribers")
-
-    return num_subs

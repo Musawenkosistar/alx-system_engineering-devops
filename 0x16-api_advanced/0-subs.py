@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-"""Function to query subscribers on a given Reddit subreddit."""
+'''
+    this module contains the function number_of_subscribers
+'''
 import requests
 
+
 def number_of_subscribers(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'User-Agent': 'ALX Project/1.0 by /u/Musawenkosistar'}
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        return data['data']['subscribers']
-    else:
-        print(f"Failed to fetch data for subreddit {subreddit}. Status code: {response.status_code}")
+    '''
+        returns the number of subscribers for a given subreddit
+    '''
+    user = {'User-Agent': 'ALX Project/1.0 by /u/Musawenkosistar'}
+    url = requests.get('https://www.reddit.com/r/{}/about.json'
+                       .format(subreddit), headers=user).json()
+    try:
+        return url.get('data').get('subscribers')
+    except Exception:
         return 0

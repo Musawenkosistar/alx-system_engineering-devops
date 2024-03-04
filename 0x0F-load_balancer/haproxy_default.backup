@@ -6,11 +6,11 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend amongstinkanyezi-tech-frontend
+frontend Musawenkosistar
     bind *:80
     default_backend amongstinanyezi-tech-backend
 
-backend clickviral-tech-backend
+backend amongstinanyezi-tech-backend
     balance roundrobin
     server 232782-web-01 54.198.55.96:80 check
     server 232782-web-02 18.204.13.64:80 check

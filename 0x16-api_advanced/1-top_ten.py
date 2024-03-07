@@ -8,7 +8,7 @@ import requests
 def top_ten(subreddit):
     """Get 10 hot posts"""
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers ={'ALX Project/1.0 by /u/Musawenkosistar'}
+    headers = {'user-agent': 'ALX Project/1.0 by /u/Musawenkosistar'}
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:

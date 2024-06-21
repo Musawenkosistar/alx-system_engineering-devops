@@ -8,8 +8,8 @@ def number_of_subscribers(subreddit):
     """
        get the number of subscribers for a given subreddit
     """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'user-agent': 'request'}
+    url = "https://www.reddit.com/r/{}/about.json"
+    headers = {"ALX Projecr/1.0: by /u/Musawenkosistar"}
     response = requests.get(url, headers=headers, allow_redirects=False)
 
     if response.status_code != 200:

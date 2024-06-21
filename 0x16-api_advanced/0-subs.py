@@ -5,17 +5,13 @@
 import requests
 
 def number_of_subscribers(subreddit):
-    """
-       get the number of subscribers for a given subreddit
-    """
-    url = "https://www.reddit.com/r/{}/about.json"
-    headers = {"ALX Projecr/1.0: by /u/Musawenkosistar"}
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {"/u/Musawenkosistar": "ALX Project/1.0"}
     response = requests.get(url, headers=headers, allow_redirects=False)
-
-    if response.status_code != 200:
-       return 0
-
-    data = response.json().get("data")
-    numb_subs = data.get("subscribers")
-
-    return num_subs
+    if response.status_code == 200:
+        data = response.json()
+        subscribers = data['data']['subscribers']
+        return subscribers
+    else:
+        return 0

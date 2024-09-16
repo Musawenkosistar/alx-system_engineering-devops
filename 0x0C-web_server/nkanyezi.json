@@ -1,0 +1,73 @@
+"domainName": "amongstinkanyezi.tech",
+   "parseCode": 8,
+   "audit": {
+      "createdDate": "2024-09-16 19:25:44 UTC",
+      "updatedDate": "2024-09-16 19:25:44 UTC"
+   },
+   "registrarName": "Dotserve Inc",
+   "registrarIANAID": "1913",
+   "registryData": {
+      "createdDate": "2024-01-26T19:53:23.0Z",
+      "updatedDate": "2024-03-06T11:46:05.0Z",
+      "expiresDate": "2025-01-26T23:59:59.0Z",
+      "registrant": {
+         "organization": "iNkanyezi",
+         "state": "3722",
+         "country": "SOUTH AFRICA",
+         "countryCode": "ZA",
+         "rawText": "(omitted in the demo)"
+      },
+      "administrativeContact": {
+         "country": "SOUTH AFRICA",
+         "countryCode": "ZA",
+         "rawText": "(omitted in the demo)"
+      },
+      "billingContact": {
+         "country": "SOUTH AFRICA",
+         "countryCode": "ZA",
+         "rawText": "(omitted in the demo)"
+      },
+      "technicalContact": {
+         "country": "SOUTH AFRICA",
+         "countryCode": "ZA",
+         "rawText": "(omitted in the demo)"
+      },
+      "domainName": "amongstinkanyezi.tech",
+      "nameServers": {
+         "rawText": "(omitted in the demo)",
+         "hostNames": [
+            "CONT603385.VENUS.ORDERBOX-DNS.COM",
+            "CONT603385.MERCURY.ORDERBOX-DNS.COM",
+            "CONT603385.MARS.ORDERBOX-DNS.COM",
+            "CONT603385.EARTH.ORDERBOX-DNS.COM"
+         ],
+         "ips": []
+      },
+      "status": "(omitted in the demo)",
+      "rawText": "(omitted in the demo)",
+      "parseCode": 4091,
+      "header": "(omitted in the demo)",
+      "strippedText": "(omitted in the demo)",
+      "footer": "(omitted in the demo)",
+      "audit": {
+         "createdDate": "2024-09-16 19:25:44 UTC",
+         "updatedDate": "2024-09-16 19:25:44 UTC"
+      },
+      "customField1Name": "RegistrarContactEmail",
+      "customField1Value": "abuse@dotserve.website",
+      "registrarName": "Dotserve Inc",
+      "registrarIANAID": "1913",
+      "createdDateNormalized": "2024-01-26 19:53:23 UTC",
+      "updatedDateNormalized": "2024-03-06 11:46:05 UTC",
+      "expiresDateNormalized": "2025-01-26 23:59:59 UTC",
+      "customField2Name": "RegistrarContactPhone",
+      "customField3Name": "RegistrarURL",
+      "customField2Value": "+1.4154494774",
+      "customField3Value": "http://dotserve.website",
+      "whoisServer": "whois.dotserve.website"
+   },
+   "domainAvailability": "UNAVAILABLE",
+   "contactEmail": "abuse@dotserve.website",
+   "domainNameExt": ".tech",
+   "estimatedDomainAge": 233
+}

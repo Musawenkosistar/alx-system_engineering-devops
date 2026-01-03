@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "obase=$(echo bestchol | wc -c | awk '{print $1-1}'); $(echo "$WATER" | tr 'water' '01234')+$(echo "$STIR" | tr 'stir.' '01234')" | bc | tr '0123456789' 'bestchol'
+s=0; for ((i=0;i<${#WATER};i++)); do s=$((s*5+${#w})); done; for ((i=0;i<${#STIR};i++)); do s=$((s*5+${#s})); done; n=$s; o=""; while ((n)); do o="${bestchol:n%10:1}$o"; n=$((n/10)); done; echo $o
